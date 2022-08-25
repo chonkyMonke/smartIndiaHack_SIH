@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import icon from './logo.png'
+import icon from './pragmatemaroon.png'
 import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query';
 import { checkAuthStatus } from '../../api/authReq';
@@ -8,26 +8,26 @@ function Homenav() {
     const[show,setShow]=useState(false);
     const authStatus = useQuery('authstatus', checkAuthStatus, { initialData: { user: undefined, isLoggedIn: false } })
   return (
-    <div className="sticky top-0 z-50 bg-white" >
+    <div className="sticky top-0 z-50 bg-white " >
         <nav id='mobileview' className='lg:hidden'>
             <div className="flex flex-row justify-between">
             <div className="">
             <a href="/" className='flex items-center'>
-                    <img src={icon} alt="" className='py-2 pl-2 h-14 '/>
+                    <img src={icon} alt="" className='h-12 py-2 pl-2 pr-2'/>
                     <div className="">
-                    <span className="text-cus font-[Poppins] font-cus text-txt">PRAG</span>
-                    <span className="font-[Poppins] text-cus font-extrabold text-first">MATE</span>
-                    <span className="font-[Poppins] text-4xl text-txt">.</span>
+                    <span className="pr-1 text-3xl font-extrabold text-cus text-first font-bans">PRAG</span>
+                    <span className="font-extrabold font-bans text-cus text-merry">MATE</span>
+                    
                     </div>
             </a>
             </div>
-            <div onClick={()=>setShow(!show)}>
-            <i class="uil uil-bars text-cus2 pr-3 pt-1"></i>  
+            <div onClick={()=>setShow(!show)} className='-translate-y-1'>
+            <i class="uil uil-bars text-cus2 pr-3 pt-1 "></i>  
             </div>
             </div>
             <div>
                 {
-                    show?<ul className='flex flex-col justify-center pb-6 text-xl shadow-lg border-y-8 pl-14 font-pops'>
+                    show?<ul className='flex flex-col justify-center pb-6 text-xl shadow-xl pl-14 font-pops '>
                     <li className="py-3 pt-5 hover:text-first">
                         <i class="uil uil-estate pr-2"></i>
                         <a href="#" onClick={()=>setShow(false)} className="">HOME</a></li>
@@ -73,17 +73,15 @@ function Homenav() {
             </div>
             
         </nav>
-        <nav id='desktopview' className='hidden lg:block mr-0'>
+        <nav id='desktopview' className='hidden mr-0 lg:block'>
         <div className="flex justify-between">
         
             <div className="flex flex-row">
             <a href="/" className='flex items-center'>
-                    <img src={icon} alt="" className='h-12 pl-2'/>
-                    <div className="">
-                    <span className="text-cus font-[Poppins] font-cus text-txt">PRAG</span>
-                    <span className="font-[Poppins] text-cus font-extrabold text-first">MATE</span>
-                    <span className="font-[Poppins] text-4xl text-txt">.</span>
-                    </div>
+            <img src={icon} alt="" className='h-12 py-2 pl-2 pr-2'/>
+                    
+                    <span className="pr-1 text-3xl font-extrabold text-cus text-first font-bans">PRAG</span>
+                    <span className="font-extrabold font-bans text-cus text-merry">MATE</span>
             </a>
             </div>
 

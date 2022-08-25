@@ -1,14 +1,19 @@
 import React from "react";
 
+
 function Footer() {
 	return (
 		<>
 			<div className="flex flex-col items-start justify-between w-full p-12 bg-gray-50 h-1/2 md:flex-row">
 				<div className="p-5 pl-0 mx-10 ml-0">
 					<ul>
-						<p className="pb-6 text-3xl font-bold text-gray-800 font-[Poppins] ">
-							PRAG<span className="text-orange-600">MATE</span><span className="font-[Poppins] text-4xl text-txt">.</span>
-						</p>
+					<a href="/" className='flex items-center'>
+                    <div className="pb-5">
+                    <span className="pl-2 pr-1 text-5xl font-extrabold text-cus text-first font-bans">PRAG</span>
+                    <span className="font-extrabold text-cus font-bans text-merry">MATE</span>
+                    
+                    </div>
+            </a>
 						<div className="flex gap-6 pb-5 ml-2 text-xl ">
                         <i class="uil uil-instagram hover:text-orange-600 hover:scale-105"></i>
                         <i class="uil uil-twitter-alt hover:text-orange-600 hover:scale-105"></i>
@@ -17,7 +22,7 @@ function Footer() {
 						</div>
 					</ul>
 				</div>
-				<div className="flex justify-between w-full">
+				<div className="flex justify-between w-full lg:justify-around">
 				<div className="py-5 lg:px-5">
 					<ul>
 						<p className="pb-4 text-2xl font-bold text-gray-800">TOPIC 1</p>

@@ -36,7 +36,7 @@ function Contact() {
   <section class="text-gray-600 body-font relative ">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+        <h1 class="text-4xl font-semibold text-gray-900 title-font mb-5 lg:mb-20 lg:text-6xl">Contact Us</h1>
         {
           isSending ?
           <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Sending your message now ... </p>

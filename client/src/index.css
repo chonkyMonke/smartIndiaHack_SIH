@@ -30,4 +30,13 @@
     .min-height-75{
         min-height:600px;
     }
+    .abtbgimg{
+        background-image: url('abtbg.png');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-size:cover;   
+        background-position: center center;
+        @apply absolute  w-full h-full mix-blend-overlay 
+    }
 }

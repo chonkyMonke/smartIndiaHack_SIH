@@ -3,8 +3,8 @@ import React from 'react'
 function Partner() {
   return (
     <div id='partners'>
-      <div className="flex justify-center items-center">
-        <div className='text-3xl  font-medium title-font text-gray-900'>Partners</div>
+      <div className="flex items-center justify-center">
+        <div className='text-4xl font-semibold text-gray-900 title-font lg:md:-translate-y-20 lg:text-6xl'>Organizers</div>
     </div>
         <section class="text-gray-600 body-font">
   <div class="container px-5 pt-10 mx-auto">

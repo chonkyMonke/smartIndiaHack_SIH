@@ -4,10 +4,12 @@ module.exports = {
   theme: {
     fontFamily: {
       pops: ['Poppins', 'sans-serif'],
+      bans: ['Bebas Neue', 'sans-serif']
     },
     extend: {
       colors: {
         'first': '#F45502', 
+        'merry': '#470000',
         'alt': '#FF9900', 
         'bgbody':'#f3f6fd',
         'bg': '#f8fafc', 
@@ -27,8 +29,15 @@ module.exports = {
         'cus':'790'
       },
       height: {
-        '128': '40rem',
-      }
+        '128': '36rem',
+        '120': '35rem',
+        'mlg': '45rem',
+        'vlg': '60rem'
+      },
+      width: {
+        '128': '38rem',
+        '120': '35rem',
+      },
     },
   },
   plugins: [],
