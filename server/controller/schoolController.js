@@ -95,6 +95,11 @@ const getTeacher = async(req,res) => {
     const teachers = await Teacher.find({ 
         school: req.user.userInfo._id
     });
+    for(let i=0; i<teachers.length; i++)
+    {
+        const teacherUser = await User.findOne({ userInfo: teachers[i]._id });
+        teachers[i]._id = teacherUser;
+    }
     return res.status(200).json(teachers);
 }
 
@@ -105,6 +110,11 @@ const getStudent = async(req,res) => {
     const students = await Student.find({ 
         school: req.user.userInfo._id
     });
+    for(let i=0; i<students.length; i++)
+    {
+        const studentUser = await User.findOne({ userInfo: students[i]._id });
+        students[i]._id = studentUser;
+    }
     return res.status(200).json(students);
 }
 

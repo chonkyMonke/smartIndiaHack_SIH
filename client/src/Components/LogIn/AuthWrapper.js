@@ -13,7 +13,7 @@ const AuthWrapper = ({ children }) => {
     return (
         <>
             {
-                authStatus.isFetched ? 
+                (!authStatus.isFetching) ? 
                   (
                     authStatus.data.isLoggedIn ?
                     (
