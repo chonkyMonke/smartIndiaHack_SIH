@@ -45,7 +45,7 @@ function Modulecard({ learningPath={}, percent, lpQuery, i, handleUpdate }) {
 
               <button
                 className=" m-1 mt-3 w-full cursor-pointer rounded-lg bg-first p-2 font-semibold text-white"
-                onClick={handleUpdate}
+                onClick={() => { handleUpdate(i) }}
               >
                 Submit
               </button>
