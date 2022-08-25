@@ -4,16 +4,16 @@ import { UilAngleRightB } from "@iconscout/react-unicons";
 import Topiccard from "./Topiccard";
 import Progresswrapper from "../Progressbars/Progresswrapper";
 
-function Modulecard({ learningPath={}, percent, lpQuery, i, handleUpdate }) {
+function Modulecard({ learningPath={}, percent=0, lpQuery, i, handleUpdate }) {
   return (
-    <div className="mx-auto w-full max-w-xl rounded-2xl bg-white p-2">
+    <div className=" w-full max-w-xl rounded-2xl bg-white p-2">
       <Disclosure>
         {({ open }) => (
           <>
             <Disclosure.Button className="flex min-h-fit w-full min-w-fit items-center justify-start gap-4 whitespace-nowrap rounded-lg py-2 text-left text-xl font-medium text-purple-900">
               <div
                 className={`flex items-center justify-start gap-4 duration-300 ${
-                  open ? "text-3xl font-bold" : ""
+                  open ? "md:text-3xl font-bold" : ""
                 } mr-5 text-first`}
               >
                 <UilAngleRightB
@@ -31,11 +31,11 @@ function Modulecard({ learningPath={}, percent, lpQuery, i, handleUpdate }) {
                 <Progresswrapper
                   type="linear"
                   progressVal={percent}
-                  time={50}
+                  time={20}
                   strokeSize={20}
                   containerSize={100}
                   fontSize={16}
-                  color="green"
+                  color="orange"
                 />
               </div>
 

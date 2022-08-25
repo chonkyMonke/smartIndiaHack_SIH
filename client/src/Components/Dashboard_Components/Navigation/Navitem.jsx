@@ -6,7 +6,7 @@ function Navitem({ id, text = "", icon, selected, setSelected, open = true }) {
 
   return (
     <div
-      className={`relative mt-6 mb-2 flex cursor-pointer items-center rounded-l-lg p-2 text-gray-400 transition-colors duration-200  ${
+      className={` ml-1 relative mt-6 mb-2 flex cursor-pointer items-center rounded-l-lg p-2 text-gray-400 transition-colors duration-200  ${
         selected == id ? " bg-white text-black" : "hover:text-white"
       } ${open ? "" : "justify-center"}`}
       onClick={() => {

@@ -28,7 +28,7 @@ function Linearbar({
         </span>
       </div>
       <div
-        className="flex w-full items-center justify-start rounded-full border bg-gray-300"
+        className="flex w-full items-center justify-start rounded-full border bg-gray-100"
         style={{
           height: `${strokeWidth}px`,
         }}

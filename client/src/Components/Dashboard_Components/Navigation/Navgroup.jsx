@@ -45,7 +45,7 @@ function Navgroup({
       <div>
         {submenuItems.map((item, index) => (
           <div
-            className={`relative flex cursor-pointer items-center rounded-l-lg text-gray-400 transition-all duration-300 ${
+            className={`relative ml-1 flex cursor-pointer items-center rounded-l-lg text-gray-400 transition-all duration-300 ${
               selected == item.id ? "bg-white text-black" : "hover:text-white"
             }
             ${expand && open ? "h-fit p-2 opacity-100" : "h-0 p-0 opacity-0"}

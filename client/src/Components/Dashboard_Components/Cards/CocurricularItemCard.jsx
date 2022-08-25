@@ -7,7 +7,7 @@ function CocurricularItemCard({ data, delCocurr }) {
     setIsReadMore(!isReadMore);
   };
   return (
-    <div className="mx-auto w-full max-w-xl rounded-2xl bg-white p-2">
+    <div className="mx-auto w-full max-w-xl rounded-2xl bg-white px-3">
       <div className="my-1 text-2xl font-medium">{data.name}</div>
       <p className="text-sm">
         {isReadMore ? text.slice(0, 150) : text}

@@ -39,7 +39,7 @@ function AddCocurriculumForm({ studentId }) {
   //   console.log(finalData);
   // };
   return (
-    <div className="m-10 mx-auto flex w-full max-w-xl flex-col p-10 shadow-md md:rounded-3xl">
+    <div className="m-3 mx-auto flex w-full max-w-xl flex-col p-10 lg:shadow-md md:rounded-3xl">
       {isLoading ? (
         <h1 className="w-full text-center text-xl">LOADING...</h1>
       ) : (
@@ -50,6 +50,7 @@ function AddCocurriculumForm({ studentId }) {
           <input
             type="text"
             name="CocurricularName"
+            autocomplete="off"
             value={name}
             className="m-1 h-8 rounded-lg border border-gray-400 p-1"
             onChange={(e) => {
