@@ -31,10 +31,11 @@ function About() {
       </Player>
       <div className="flex flex-col items-center">
       <p className="hidden text-xl font-semibold text-white text-end mx-9 lg:block ">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illo provident neque sint dolorem inventore, 
+          The students in the pragmatic world need a holistic development, the question of manual efforts of the teachers to put in the progress of the students about their learning outcomes inn realtime is time consuming and exhaustive.We partner with AWS to provide auto scaling services and a load balancer to ensure a smooth fast and a scaled application
         </p>
         <p className="hidden pt-10 text-xl font-semibold text-white text-end mx-9 lg:block">
-        Saepe fuga beatae cupiditate magnam eos. Reiciendis, unde atque beatae, magni dolorem iusto cum 
+        Hence, we implement the realtime tracking of student learning outcomes based on inputs of students, teachers and schools. 
+        We are here for you  
         </p>
       </div>
         <div className='translate-y-36 lg:hidden'>
@@ -51,10 +52,10 @@ function About() {
       >
       </Player>
         <p className="mx-3 text-lg font-semibold text-center text-white -translate-y-3 md:block md:-translate-y-20">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illo provident neque sint dolorem inventore, 
+           , 
         </p>
         <p className="pt-5 mx-3 text-lg font-semibold text-center text-white -translate-y-3 md:block md:-translate-y-20">
-        Saepe fuga beatae cupiditate magnam eos. Reiciendis, unde atque beatae, magni dolorem iusto consectetur  
+        
         </p>
         </div>
         
