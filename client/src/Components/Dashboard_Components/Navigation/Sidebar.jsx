@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UilUserCircle, UilBars, UilMultiply, UilEstate } from "@iconscout/react-unicons";
-import logofull from "../../../logofull.svg";
-import logoicon from "../../../logoicon.svg";
+import logofull from "../../../pragmate2.png";
+import logoicon from "../../../pragmate.png";
 import Navgrid from "./Navgrid";
 
 function Sidebar({ menuList = [{
@@ -47,8 +47,9 @@ function Sidebar({ menuList = [{
 },], username="Ramesh", userType="student", selected, setSelected }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="pl-3 bg-gray-800 w-fit ">
-      <div className={`min-h-screen duration-500 ${open ? "w-60" : "w-20"} `}>
+
+    <div className="w-fit bg-gray-800 pl-3 ">
+      <div className={`min-h-screen duration-500 ${open ? "w-52" : "w-20"} `}>
         <div className="flex flex-col items-center justify-center py-6">
           <div className="absolute text-white bg-gray-800 rounded-md cursor-pointer top-5 right-5">
             {open ? (
@@ -68,11 +69,10 @@ function Sidebar({ menuList = [{
             )}
           </div>
           <div
-            className={`flex flex-row items-center py-2 ${
-              open ? "justify-start gap-4" : "justify-center"
-            }`}
+            className={`flex flex-row items-center py-2 justify-center`}
           >
-            
+
+            {open ? <img src={logofull} className="w-32" alt="logo" /> : <img src={logoicon} className="w-12" alt="logo" />}
           </div>
 
           <div className="bg-gray-800 rounded-2xl">
@@ -81,12 +81,8 @@ function Sidebar({ menuList = [{
                 open ? "justify-start gap-4" : "justify-center"
               }`}
             >
-              <a href="#" className="relative flex-shrink-0 block">
-                {/* <img
-                  alt="profil"
-                  src="/images/person/1.jpg"
-                  className="object-cover w-16 h-16 mx-auto rounded-full "
-                /> */}
+
+              {/* <a href="#" className="relative flex-shrink-0 block">
                 <UilUserCircle className="w-10 h-10 text-white" />
               </a>
               {open ? (
@@ -96,7 +92,8 @@ function Sidebar({ menuList = [{
                 </div>
               ) : (
                 ""
-              )}
+              )} */}
+
             </div>
           </div>
         </div>

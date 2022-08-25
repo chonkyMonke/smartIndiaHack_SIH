@@ -20,6 +20,8 @@ import AddStudentForm from './Components/Dashboard_Components/Forms/AddStudentFo
 import AddTeacherForm from './Components/Dashboard_Components/Forms/AddTeacherForm';
 import CocurricularListCard from './Components/Dashboard_Components/Cards/CocurricularListCard'
 import Sidebar from "./Components/Dashboard_Components/Navigation/Sidebar";
+import Iframe from "./Components/Dashboard_Components/iFrame/Chatbot";
+import MCQ from "./Components/Dashboard_Components/MCQ";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -36,7 +38,10 @@ const wrapper = (
           path="/custom"
           element={
             <div>
-              <Sidebar />
+              
+              {/* <Sidebar /> */}
+              <Iframe/>
+              <MCQ/>
               <AddAcademicPathForm />
               <AddCocurriculumForm />
               <StudentSearchCard

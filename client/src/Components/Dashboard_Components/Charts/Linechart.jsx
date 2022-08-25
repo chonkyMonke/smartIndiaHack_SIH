@@ -61,7 +61,7 @@ function Linechart({ labels, dataset, datasetLabels, colors }) {
           plugins: {
             legend: {
               display: true,
-              position: "right",
+              position: "top",
               labels: {
                 usePointStyle: true,
               },

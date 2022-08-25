@@ -13,6 +13,7 @@ virtualenv env
 
 # start the virtual env
 source env/bin/activate
+#windows-> .\env\Scripts\activate 
 
 # install dependencies
 pip install -r requirements.txt

@@ -41,7 +41,7 @@ function Contact() {
           isSending ?
           <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Sending your message now ... </p>
           :
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">In case you are facing issues please write to us! We shall get back to you shotly, meanwhile keep learning !!!</p>
         }
       </div>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
