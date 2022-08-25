@@ -1,10 +1,11 @@
 const { Router } = require("express");
-const { createClassroom, getClassroom, getTeacher, addTeacher, addStudent } = require("../controller/schoolController");
+const { createClassroom, getClassroom, getTeacher, getStudent, addTeacher, addStudent } = require("../controller/schoolController");
 
 const router = Router();
 
 router.get('/classroom', getClassroom);
 router.get('/teacher', getTeacher);
+router.get('/student', getStudent);
 router.post('/createClassroom', createClassroom);
 router.post('/classroom/addTeacher', addTeacher);
 router.post('/classroom/addStudent', addStudent);

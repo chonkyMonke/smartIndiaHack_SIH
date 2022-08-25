@@ -1,30 +1,30 @@
 import React, { useRef } from "react";
 import { useState } from "react";
-import { addTeacher } from "../../../api/schoolReq";
+import { addTeacherClassroom } from "../../../api/schoolReq";
 
-function AddTeacherForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+function AddTeacherToClassForm() {
+  const [teacherId, setTeacherId] = useState("");
+  const [classId, setClassId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const submit = async (e) => {
-    if (name === "") window.alert("Please enter teacher name");
-    else if (email === "") window.alert("Please enter teacher email");
+    if (teacherId === "") window.alert("Please enter student Id");
+    else if (classId === "") window.alert("Please enter path Id");
     else {
       setIsLoading(true);
 
-      const res = await addTeacher(name, email);
+      const res = await addTeacherClassroom(classId, teacherId);
       if(res.error)
       {
         window.alert(res.error);
       }
       else
       {
-        window.alert("New Teacher Added!");
+        window.alert("Student Added To Classroom!");
       }
 
-      setName("");
-      setEmail("");
+      setTeacherId("");
+      setClassId("");
       setIsLoading(false);
     }
   };
@@ -35,14 +35,14 @@ function AddTeacherForm() {
       ) : (
         <>
           <label htmlFor="teacherName" className="p-1 text-xl font-semibold">
-            Teacher Name:{" "}
+            Teacher Id:{" "}
           </label>
           <input
             type="text"
             name="teacherName"
-            value={name}
+            value={teacherId}
             onChange={(e) => {
-              setName(e.target.value);
+              setTeacherId(e.target.value);
             }}
             className="m-1 h-8 rounded-lg border border-gray-400 p-1"
           />
@@ -50,14 +50,14 @@ function AddTeacherForm() {
             htmlFor="teacherEmail"
             className="mt-1 p-1 text-xl font-semibold"
           >
-            Teacher Email:{" "}
+            Path Id:{" "}
           </label>
           <input
             type="text"
             name="teacherEmail"
-            value={email}
+            value={classId}
             onChange={(e) => {
-              setEmail(e.target.value);
+              setClassId(e.target.value);
             }}
             className="m-1 rounded-lg border border-gray-400 p-1"
           />
@@ -75,4 +75,4 @@ function AddTeacherForm() {
   );
 }
 
-export default AddTeacherForm;
+export default AddTeacherToClassForm;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { addStudent } from "../../../api/schoolReq";
 
 function AddStudentForm() {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ function AddStudentForm() {
   const [roll, setRoll] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     if (name === "") window.alert("Please enter student name");
     else if (section === "") window.alert("Please enter student section");
     else if (grade === "") window.alert("Please enter student grade");
@@ -18,22 +19,22 @@ function AddStudentForm() {
     else {
       setIsLoading(true);
 
-      console.log({
-        Name: name,
-        Section: section,
-        Grade: grade,
-        Email: email,
-        Roll: roll,
-      });
+      const res = await addStudent(name, grade, section, roll, email)
+      if(res.error)
+      {
+        window.alert(res.error);
+      }
+      else
+      {
+        window.alert("New Student Added!");
+      }
 
       setName("");
       setSection("");
       setGrade("");
       setEmail("");
       setRoll("");
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
+      setIsLoading(false);
     }
   };
   return (

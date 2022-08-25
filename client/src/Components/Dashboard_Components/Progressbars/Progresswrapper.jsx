@@ -16,10 +16,11 @@ function Progresswrapper({
 
   useEffect(() => {
     progress.current = 0;
+    if(progressVal === 0) return;
     const progressInterval = setInterval(() => {
       progress.current = progress.current + 1;
       setProgressState(progress.current);
-      if (progress.current === progressVal) {
+      if (progress.current >= progressVal) {
         clearInterval(progressInterval);
       }
     }, time);

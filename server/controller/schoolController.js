@@ -32,15 +32,15 @@ const addTeacher = async(req , res) =>{
         teachers.push(teacherId);
     }
     classroom.teachers = teachers;
-    let teacher = await User.findById(teacherId);
-    let teacherData = await Teacher.findById(teacher.userInfo);
+    console.log(teacherId);
+    let teacherData = await Teacher.findById(teacherId);
     let classrooms = teacherData?.classRooms;
     if(classrooms?.includes(classroomId) == false){
         classrooms.push(classroomId);
     }
     teacherData.classRooms = classrooms;
     await Classroom.findByIdAndUpdate({_id:classroomId}, classroom);
-    await Teacher.findByIdAndUpdate({_id:teacher.userInfo}, teacherData);
+    await Teacher.findByIdAndUpdate({_id:teacherId}, teacherData);
     return res.status(200).json(classroom);
 }
 const addStudent = async(req , res) =>{
@@ -66,15 +66,14 @@ const addStudent = async(req , res) =>{
         });
     }
     classroom.students = students;
-    let student = await User.findById(studentId);
-    let studentData = await Student.findById(student.userInfo);
+    let studentData = await Student.findById(studentId);
     let classrooms = studentData?.classRooms;
     if(classrooms?.includes(classroomId) == false){
         classrooms.push(classroomId);
     }
     studentData.classRooms = classrooms;
     await Classroom.findByIdAndUpdate({_id:classroomId}, classroom);
-    await Student.findByIdAndUpdate({_id:student.userInfo}, studentData);
+    await Student.findByIdAndUpdate({_id:studentId}, studentData);
     return res.status(200).json(classroom);
 
 }
@@ -99,8 +98,19 @@ const getTeacher = async(req,res) => {
     return res.status(200).json(teachers);
 }
 
+const getStudent = async(req,res) => {
+    if(req?.user?.userType != "School"){
+        return res.status(401).json({message : "Access Denied"})
+    }
+    const students = await Student.find({ 
+        school: req.user.userInfo._id
+    });
+    return res.status(200).json(students);
+}
+
 module.exports.createClassroom = createClassroom;
 module.exports.addTeacher = addTeacher;
 module.exports.addStudent = addStudent;
 module.exports.getTeacher = getTeacher;
 module.exports.getClassroom = getClassroom;
+module.exports.getStudent = getStudent;

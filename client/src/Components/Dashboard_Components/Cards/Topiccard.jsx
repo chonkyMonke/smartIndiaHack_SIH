@@ -6,7 +6,7 @@ function Topiccard({ title, isDone=false, lpQuery, i, j }) {
       <input
         type="checkbox"
         defaultChecked={isDone}
-        disabled={isDone}
+        // disabled={isDone}
         className={`m-1 h-4 w-4 rounded accent-orange-600 `}
         onChange={(e)=>{lpQuery.data.learningPath[i].learningOutcomes[j].isDone = e.target.checked;}}
       />
