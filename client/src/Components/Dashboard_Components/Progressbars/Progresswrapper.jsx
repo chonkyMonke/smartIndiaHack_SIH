@@ -71,14 +71,14 @@ function Progresswrapper({
 export default Progresswrapper;
 
 // call example:
-// <Progresswrapper
-//             type="circular"
-//             progressVal={25}
-//             time={50}
-//             strokeSize={3}
-//             containerSize={100}
-//             color="green"
-//           />
+{/* <Progresswrapper
+            type="circular"
+            progressVal={25}
+            time={50}
+            strokeSize={3}
+            containerSize={100}
+            color="green"
+          /> */}
 {/* <Progresswrapper
             type="linear"
             progressVal={100}
