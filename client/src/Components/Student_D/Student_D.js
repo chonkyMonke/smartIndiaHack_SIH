@@ -20,9 +20,39 @@ import Progresswrapper from "../Dashboard_Components/Progressbars/Progresswrappe
 import { getLearningPaths, updateLearningPath } from "../../api/learnPReq";
 import Modulecard from "../Dashboard_Components/Cards/Modulecard";
 import CocurricularItemCard from "../Dashboard_Components/Cards/CocurricularItemCard";
+import { predictScore } from "../../api/predictionReq";
 
 const Student_Home = ({ studentId, setSelected }) => {
   const lpQuery = useQuery(['learnpath', studentId], () => getLearningPaths(studentId));
+  const cocurrQuery = useQuery(['cocurr', studentId], () => getCocurrData(studentId));
+  const [predIsFetching, setPredIsFetching] = useState(false);
+  const [predScore, setPredScore] = useState(0);
+  const getPrediction = async () => {
+    setPredIsFetching(true);
+    let nCocurr = cocurrQuery.data.data.length;
+    let nLP = lpQuery.data.learningPath.length;
+    let avgScore = 0;
+    for(let idx = 0; idx < nLP; idx++)
+    {
+      avgScore = avgScore + (lpQuery.data.learningPath[idx].score * 100);
+    }
+    avgScore = avgScore / nLP;
+    console.log("Avg Score" + avgScore + " nCocurr" + nCocurr);
+    const res = await predictScore(avgScore, nCocurr);
+    if(res.error)
+    {
+      window.alert("Something went wrong");
+    }
+    else
+    {
+      console.log("Predicted Result"+res);
+      setPredScore(res);
+    }
+    setPredIsFetching(false);
+  }
+  useEffect(() => {
+    getPrediction();
+  }, [lpQuery, cocurrQuery]);
   return (
     <div className="w-full overflow-y-auto">
       <h1 className="w-full text-center text-3xl">THIS IS HOME PAGE</h1>
@@ -84,6 +114,14 @@ const Student_Home = ({ studentId, setSelected }) => {
               ["rgb(230,206,247)", "rgb(247,15,225)", "#b0d980", "#83de14"],
             ]}
           /> */}
+        </div>
+        <div className="flex w-full justify-center">
+          {
+            (cocurrQuery.isFetching || predIsFetching) ?
+            <h1 className="w-full text-center text-3xl">LOADING PREDICTION...</h1>
+            :
+            <h1 className="w-full text-center text-3xl">PREDICTED SCORE: {predScore}</h1>
+          }
         </div>
       </div>
     </div>
@@ -157,16 +195,16 @@ const Student_LearnPath = ({ studentId }) => {
   )
 }
 
-const Student_CocurrCard = ({ data, delCocurr }) => {
-  return (
-    <div className="flex w-full max-w-xl flex-col mx-auto my-10 rounded-xl shadow-lg">
-      <h1><b>Name:</b> {data.name}</h1>
-      <h1><b>Description:</b> </h1>
-      <p>{data.description}</p>
-      <button onClick={() => { delCocurr(data.name, data.studentId) } }>Delete</button>
-    </div>
-  )
-}
+// const Student_CocurrCard = ({ data, delCocurr }) => {
+//   return (
+//     <div className="flex w-full max-w-xl flex-col mx-auto my-10 rounded-xl shadow-lg">
+//       <h1><b>Name:</b> {data.name}</h1>
+//       <h1><b>Description:</b> </h1>
+//       <p>{data.description}</p>
+//       <button onClick={() => { delCocurr(data.name, data.studentId) } }>Delete</button>
+//     </div>
+//   )
+// }
 
 const Student_Cocurricular = ({ studentId }) => {
   // console.log('In student cocurricular');
