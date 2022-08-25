@@ -84,6 +84,7 @@ const wrapper = (
               <AddStudentForm />
               <AddTeacherForm />
             </div>
+            
           }
         />
       </Routes>

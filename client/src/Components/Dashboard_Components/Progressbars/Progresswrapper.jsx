@@ -61,7 +61,7 @@ function Progresswrapper({
     }
   };
   return (
-    <div className="flex h-fit w-fit items-center justify-center">
+    <div className="flex h-fit items-center justify-center">
       {barElementSwitch(type)}
     </div>
   );
@@ -78,12 +78,12 @@ export default Progresswrapper;
 //             containerSize={100}
 //             color="green"
 //           />
-// <Progresswrapper
-//             type="linear"
-//             progressVal={100}
-//             time={50}
-//             strokeSize={20}
-//             containerSize={100}
-//             fontSize={16}
-//             color="green"
-//           />
+{/* <Progresswrapper
+            type="linear"
+            progressVal={100}
+            time={50}
+            strokeSize={20}
+            containerSize={100}
+            fontSize={16}
+            color="green"
+          /> */}

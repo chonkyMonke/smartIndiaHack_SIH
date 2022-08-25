@@ -2,8 +2,9 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { UilAngleRightB } from "@iconscout/react-unicons";
 import Topiccard from "./Topiccard";
+import Progresswrapper from "../Progressbars/Progresswrapper";
 
-function Modulecard({ title = "Title", topics = [] }) {
+function Modulecard({ learningPath={}, percent }) {
   return (
     <div className="mx-auto w-full max-w-xl rounded-2xl bg-white p-2">
       <Disclosure>
@@ -21,14 +22,32 @@ function Modulecard({ title = "Title", topics = [] }) {
                   } h-5 w-5 text-first`}
                 />
                 <span className={`${open ? "transform" : ""} text-first`}>
-                  {title}
+                  {learningPath.classroomId.subject}
                 </span>
               </div>
             </Disclosure.Button>
             <Disclosure.Panel className="px-2  pb-2 text-sm text-gray-500">
-              {topics.map((item) => (
-                <Topiccard title={item.title} key={item.id} />
+              <div className="m-2 w-full">
+                <Progresswrapper
+                  type="linear"
+                  progressVal={percent}
+                  time={50}
+                  strokeSize={20}
+                  containerSize={100}
+                  fontSize={16}
+                  color="green"
+                />
+              </div>
+
+              {learningPath.learningOutcomes.map((item) => (
+                <Topiccard title={item.name} isDone={item.isDone} key={item.id} />
               ))}
+
+              <button
+                className=" m-1 mt-3 w-full cursor-pointer rounded-lg bg-first p-2 font-semibold text-white"
+              >
+                Submit
+              </button>
             </Disclosure.Panel>
           </>
         )}

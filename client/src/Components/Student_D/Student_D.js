@@ -18,6 +18,7 @@ import { deleteCocurr } from "../../api/cocurrReq";
 import { useWindowSize } from "../../utils/useWindowSise";
 import Progresswrapper from "../Dashboard_Components/Progressbars/Progresswrapper";
 import { getLearningPaths, updateLearningPath } from "../../api/learnPReq";
+import Modulecard from "../Dashboard_Components/Cards/Modulecard";
 
 const Student_Home = ({ studentId, setSelected }) => {
   const lpQuery = useQuery(['learnpath', studentId], () => getLearningPaths(studentId));
@@ -110,38 +111,41 @@ const Student_LearnPath = ({ studentId }) => {
           {
             lpQuery.data.learningPath.map((path, i) => {
               return (
-                <div className="w-full m-auto shadow:lg rounded-xl" key={i}>
-                  <h1>Path Name: {path.classroomId.subject}</h1>
-                  <Progresswrapper
-                    type="linear"
-                    progressVal={path.score * 100}
-                    time={50}
-                    strokeSize={20}
-                    containerSize={100}
-                    fontSize={16}
-                    color="green"
-                  />
-                  <>
-                  {
-                    path.learningOutcomes.map((lo, j) => {
-                      return (
-                        <div key={j}>
-                          <label htmlFor={lo.name}>{lo.name}</label>
-                          <input 
-                            type="checkbox" 
-                            id={lo.name} 
-                            defaultChecked={lo.isDone} 
-                            disabled={lo.isDone}
-                            onChange={(e) => {
-                              lpQuery.data.learningPath[i].learningOutcomes[j].isDone = e.target.checked; // true or false
-                            }}
-                          />
-                        </div>
-                      )
-                    })
-                  }
-                  </>
-                  <button onClick={() => handleUpdate(i)} >SUBMIT</button>
+                // <div className="w-full m-auto shadow:lg rounded-xl" key={i}>
+                //   <h1>Path Name: {path.classroomId.subject}</h1>
+                //   <Progresswrapper
+                //     type="linear"
+                //     progressVal={path.score * 100}
+                //     time={50}
+                //     strokeSize={20}
+                //     containerSize={100}
+                //     fontSize={16}
+                //     color="green"
+                //   />
+                //   <>
+                //   {
+                //     path.learningOutcomes.map((lo, j) => {
+                //       return (
+                //         <div key={j}>
+                //           <label htmlFor={lo.name}>{lo.name}</label>
+                //           <input 
+                //             type="checkbox" 
+                //             id={lo.name} 
+                //             defaultChecked={lo.isDone} 
+                //             disabled={lo.isDone}
+                //             onChange={(e) => {
+                //               lpQuery.data.learningPath[i].learningOutcomes[j].isDone = e.target.checked; // true or false
+                //             }}
+                //           />
+                //         </div>
+                //       )
+                //     })
+                //   }
+                //   </>
+                //   <button onClick={() => handleUpdate(i)} >SUBMIT</button>
+                // </div>
+                <div className="flex">
+                <Modulecard learningPath={path} percent={path.score * 100}/>
                 </div>
               )
             })
