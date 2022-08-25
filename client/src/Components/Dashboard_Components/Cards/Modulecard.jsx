@@ -4,7 +4,7 @@ import { UilAngleRightB } from "@iconscout/react-unicons";
 import Topiccard from "./Topiccard";
 import Progresswrapper from "../Progressbars/Progresswrapper";
 
-function Modulecard({ learningPath={}, percent }) {
+function Modulecard({ learningPath={}, percent, lpQuery, i, handleUpdate }) {
   return (
     <div className="mx-auto w-full max-w-xl rounded-2xl bg-white p-2">
       <Disclosure>
@@ -39,12 +39,13 @@ function Modulecard({ learningPath={}, percent }) {
                 />
               </div>
 
-              {learningPath.learningOutcomes.map((item) => (
-                <Topiccard title={item.name} isDone={item.isDone} key={item.id} />
+              {learningPath.learningOutcomes.map((item, j) => (
+                <Topiccard title={item.name} isDone={item.isDone} key={item.id} lpQuery={lpQuery} i={i} j={j}/>
               ))}
 
               <button
                 className=" m-1 mt-3 w-full cursor-pointer rounded-lg bg-first p-2 font-semibold text-white"
+                onClick={handleUpdate}
               >
                 Submit
               </button>

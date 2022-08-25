@@ -106,7 +106,7 @@ const Student_LearnPath = ({ studentId }) => {
         lpQuery.isFetching ?
         <h1 className="w-full text-center text-3xl">LOADING PATHS...</h1>
         :
-        <div className="flex w-full">
+        <div className="flex flex-col w-full">
           {console.log(lpQuery.data)}
           {
             lpQuery.data.learningPath.map((path, i) => {
@@ -145,7 +145,7 @@ const Student_LearnPath = ({ studentId }) => {
                 //   <button onClick={() => handleUpdate(i)} >SUBMIT</button>
                 // </div>
                 <div className="flex">
-                <Modulecard learningPath={path} percent={path.score * 100}/>
+                <Modulecard learningPath={path} percent={path.score * 100} key={i} lpQuery={lpQuery} i={i} handleUpdate={handleUpdate} />
                 </div>
               )
             })
