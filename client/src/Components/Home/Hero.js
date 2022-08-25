@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
+import Iframe from 'react-iframe'
 function Home() {
 
   return (
     <>
     <div className="hidden h-screen lg:block lg:mx-28 lg:mt-16">
       <div className="flex flex-row justify-between ">
+      
       <h1 className="flex flex-col items-center justify-center font-semibold text-slate-700">
         <div className="flex flex-col">
         <span className="text-4xl font-pops text-slate-500">REALTIME</span>

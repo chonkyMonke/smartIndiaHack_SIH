@@ -15,7 +15,7 @@ function Homenav() {
             <a href="/" className='flex items-center'>
                     <img src={icon} alt="" className='h-12 py-2 pl-2 pr-2'/>
                     <div className="">
-                    <span className="pr-1 text-3xl font-extrabold text-cus text-first font-bans">PRAG</span>
+                    <span className="pr-1 font-extrabold text-cus text-first font-bans">PRAG</span>
                     <span className="font-extrabold font-bans text-cus text-merry">MATE</span>
                     
                     </div>
