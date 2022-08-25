@@ -16,12 +16,14 @@ const sendStudentListToTeacher = async (req, res) => {
         let students = [];
         for(i of teacherData.classRooms)
         {
-            // console.log(i);
+            console.log(i);
             const classroom = await Classroom.findById(i);
             for(j of classroom.students)
             {
+                console.log(j)
                 const student = await User.findById(j);
                 const studentData = await Student.findById(student.userInfo);
+                studentData._id = student._id;
                 students.push(studentData);
             }
         }

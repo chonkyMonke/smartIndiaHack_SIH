@@ -53,6 +53,7 @@ function About() {
       </Player>
         <p className="mx-3 text-md text-center text-white -translate-y-3 md:block md:-translate-y-20">
         The students in the pragmatic world need a holistic development, the question of manual efforts of the teachers to put in the progress of the students about their learning outcomes inn realtime is time consuming and exhaustive.We partner with AWS to provide auto scaling services and a load balancer to ensure a smooth fast and a scaled application
+
         </p>
         {/* <p className="pt-5 mx-3 text-lg font-semibold text-center text-white -translate-y-3 md:block md:-translate-y-20">
         Hence, we implement the realtime tracking of student learning outcomes based on inputs of students, teachers and schools. 

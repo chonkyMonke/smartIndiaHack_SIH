@@ -173,6 +173,7 @@ const Student_LearnPath = ({ studentId }) => {
         <div className="flex w-full flex-col">
           {console.log(lpQuery.data)}
           {lpQuery.data.learningPath.map((path, i) => {
+            console.log(path)
             return (
               // <div className="w-full m-auto shadow:lg rounded-xl" key={i}>
               //   <h1>Path Name: {path.classroomId.subject}</h1>

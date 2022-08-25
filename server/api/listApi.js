@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/teacherBySchool', sendTeacherListToSchool);
 router.get('/studentBySchool', sendStudentListToSchool);
-router.get('/studentByTeacher', sendStudentListToTeacher);
+router.post('/studentByTeacher', sendStudentListToTeacher);
 
 module.exports.listApi = router;
