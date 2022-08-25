@@ -12,11 +12,7 @@ function topnav() {
                     <span className="font-[Poppins] text-cus font-extrabold text-first">MATE</span>
                     <span className="font-[Poppins] text-4xl text-txt">.</span>
                     </div>
-                    </a>           
-            <div className='flex flex-row items-center p-2 text-2xl'>
-                <i className="hidden lg:block md:block uil uil-moon mr-2 text-3xl"></i>
-                <i className="hidden lg:block md:block uil uil-user-circle mr-2 text-3xl"></i>  
-            </div>
+                    </a>
         </div>
     </div>
   )

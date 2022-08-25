@@ -19,6 +19,7 @@ import { useWindowSize } from "../../utils/useWindowSise";
 import Progresswrapper from "../Dashboard_Components/Progressbars/Progresswrapper";
 import { getLearningPaths, updateLearningPath } from "../../api/learnPReq";
 import Modulecard from "../Dashboard_Components/Cards/Modulecard";
+import CocurricularItemCard from "../Dashboard_Components/Cards/CocurricularItemCard";
 
 const Student_Home = ({ studentId, setSelected }) => {
   const lpQuery = useQuery(['learnpath', studentId], () => getLearningPaths(studentId));
@@ -199,8 +200,10 @@ const Student_Cocurricular = ({ studentId }) => {
         </h1>
         {
           cocurrQuery.data.data.map((cocurr, idx) => {
+            console.log(cocurr)
             return (
-              <Student_CocurrCard key={idx} data={cocurr} delCocurr={delCocurr} />
+              // <Student_CocurrCard key={idx} data={cocurr} delCocurr={delCocurr} />
+              <CocurricularItemCard key={idx} data={cocurr} delCocurr={delCocurr}/>
             )
           })
         }
