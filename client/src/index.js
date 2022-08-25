@@ -19,6 +19,7 @@ import { queryClient } from './config/queryClient';
 import AddStudentForm from './Components/Dashboard_Components/Forms/AddStudentForm';
 import AddTeacherForm from './Components/Dashboard_Components/Forms/AddTeacherForm';
 import CocurricularListCard from './Components/Dashboard_Components/Cards/CocurricularListCard'
+import Sidebar from "./Components/Dashboard_Components/Navigation/Sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -35,7 +36,7 @@ const wrapper = (
           path="/custom"
           element={
             <div>
-              
+              <Sidebar />
               <AddAcademicPathForm />
               <AddCocurriculumForm />
               <StudentSearchCard
@@ -77,7 +78,7 @@ const wrapper = (
                 ]}
               /> */}
               <AddStudentForm />
-              <AddTeacherForm />
+              <AddTeacherForm /> 
             </div>
             
           }

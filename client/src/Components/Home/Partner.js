@@ -15,8 +15,8 @@ function Partner() {
         </svg>
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">ORGANIZATION NAME</h2>
-        <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste porro repellendus eum qui. Autem, temporibus.</p>
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Amazon Web Services and EC2 cloud Compute</h2>
+        <p class="leading-relaxed text-base">We are partnered with Amazon Web services to avail the structs of load balancers and auto scaling features to ensure a fast operability and an even faster interface with facilities to have a scaled operation as we proovide to you an actual product instead of a promise.</p>
         <a class="mt-3 text-orange-600 inline-flex items-center">Learn More
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -26,8 +26,8 @@ function Partner() {
     </div>
     <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">ORGANIZATION NAME</h2>
-        <p class="leading-relaxed text-base">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam rerum harum minus voluptatem, quibusdam ipsa, sequi alias tenetur at magnam delectus obcaecati necessitatibus deserunt nisi?</p>
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Microsoft Azure</h2>
+        <p class="leading-relaxed text-base">We are in collaboration with Microsoft Azure with regards to the Machine learning model and the Question and Answer Chatbot.</p>
         <a class="mt-3 text-orange-600 inline-flex items-center">Learn More
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -50,8 +50,8 @@ function Partner() {
         </svg>
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">ORGANIZATION NAME</h2>
-        <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et incidunt aspernatur, corporis non porro, sunt aut neque reprehenderit amet quaerat obcaecati nostrum quo, ea assumenda numquam! Eius, impedit! Asperiores, impedit!</p>
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Ministry of Education</h2>
+        <p class="leading-relaxed text-base">To make positive sustainable and holistic changes in our society by reducing the workload of the teachers and a pragmatic Learning opportunity tracker for thee students we are working under the supervision of the Mistry of Education, Government of India.</p>
         <a class="mt-3 text-orange-600 inline-flex items-center">Learn More
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
