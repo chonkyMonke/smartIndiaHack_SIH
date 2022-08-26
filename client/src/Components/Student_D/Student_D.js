@@ -21,10 +21,15 @@ import { getLearningPaths, updateLearningPath } from "../../api/learnPReq";
 import Modulecard from "../Dashboard_Components/Cards/Modulecard";
 import CocurricularItemCard from "../Dashboard_Components/Cards/CocurricularItemCard";
 import { predictScore } from "../../api/predictionReq";
+import MyChat from "../Dashboard_Components/Chatbot/ChatBot";
 
 const Student_Home = ({ studentName, studentId, setSelected }) => {
-  const lpQuery = useQuery(['learnpath', studentId], () => getLearningPaths(studentId));
-  const cocurrQuery = useQuery(['cocurr', studentId], () => getCocurrData(studentId));
+  const lpQuery = useQuery(["learnpath", studentId], () =>
+    getLearningPaths(studentId)
+  );
+  const cocurrQuery = useQuery(["cocurr", studentId], () =>
+    getCocurrData(studentId)
+  );
   const [predIsFetching, setPredIsFetching] = useState(false);
   const [predScore, setPredScore] = useState(0);
   const getPrediction = async () => {
@@ -32,24 +37,20 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
     let nCocurr = cocurrQuery.data.data.length;
     let nLP = lpQuery.data.learningPath.length;
     let avgScore = 0;
-    for(let idx = 0; idx < nLP; idx++)
-    {
-      avgScore = avgScore + (lpQuery.data.learningPath[idx].score * 100);
+    for (let idx = 0; idx < nLP; idx++) {
+      avgScore = avgScore + lpQuery.data.learningPath[idx].score * 100;
     }
     avgScore = avgScore / nLP;
     console.log("Avg Score" + avgScore + " nCocurr" + nCocurr);
     const res = await predictScore(avgScore, nCocurr);
-    if(res.error)
-    {
+    if (res.error) {
       window.alert("Something went wrong");
-    }
-    else
-    {
-      console.log("Predicted Result"+res);
+    } else {
+      console.log("Predicted Result" + res);
       setPredScore(res);
     }
     setPredIsFetching(false);
-  }
+  };
   useEffect(() => {
     getPrediction();
   }, [lpQuery, cocurrQuery]);
@@ -65,7 +66,7 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
             <h1 className="w-full text-center text-3xl">LOADING GRAPHS...</h1>
           ) : (
             <>
-              <div className="w-full lg:w-2/4 flex justify-center">
+              <div className="flex w-screen justify-center lg:w-2/4">
                 <Barchart
                   labels={lpQuery.data.learningPath.map((path) => {
                     return path.classroomId.subject;
@@ -79,33 +80,33 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
                   colors={[["#ff9900", "#f45502"]]}
                 />
               </div>
-              <div className="w-full lg:w-2/4 flex justify-center">
-              <Areachart
-                labels={lpQuery.data.learningPath.map((path) => {
-                  return path.classroomId.subject;
-                })}
-                dataset={[
-                  lpQuery.data.learningPath.map((path) => {
-                    return path.score * 100;
-                  }),
-                ]}
-                datasetLabels={["Learning Path Score"]}
-                colors={[["#ff9900", "#f45502"]]}
-              />
+              <div className="flex w-full justify-center lg:w-2/4">
+                <Areachart
+                  labels={lpQuery.data.learningPath.map((path) => {
+                    return path.classroomId.subject;
+                  })}
+                  dataset={[
+                    lpQuery.data.learningPath.map((path) => {
+                      return path.score * 100;
+                    }),
+                  ]}
+                  datasetLabels={["Learning Path Score"]}
+                  colors={[["#ff9900", "#f45502"]]}
+                />
               </div>
-              <div className="w-full flex justify-center">
-              <Linechart
-                labels={lpQuery.data.learningPath.map((path) => {
-                  return path.classroomId.subject;
-                })}
-                dataset={[
-                  lpQuery.data.learningPath.map((path) => {
-                    return path.score * 100;
-                  }),
-                ]}
-                datasetLabels={["Learning Path Score"]}
-                colors={[["#ff9900", "#f45502"]]}
-              />
+              <div className="flex w-full justify-center">
+                <Linechart
+                  labels={lpQuery.data.learningPath.map((path) => {
+                    return path.classroomId.subject;
+                  })}
+                  dataset={[
+                    lpQuery.data.learningPath.map((path) => {
+                      return path.score * 100;
+                    }),
+                  ]}
+                  datasetLabels={["Learning Path Score"]}
+                  colors={[["#ff9900", "#f45502"]]}
+                />
               </div>
             </>
           )}
@@ -118,14 +119,31 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
           /> */}
         </div>
         <div className="flex w-full justify-center">
-          {
-            (cocurrQuery.isFetching || predIsFetching) ?
-            <h1 className="w-full text-center text-3xl">LOADING PREDICTION...</h1>
-            :
-            <h1 className="w-full text-center text-3xl">PREDICTED SCORE: {predScore}</h1>
-          }
+          {cocurrQuery.isFetching || predIsFetching ? (
+            <h1 className="w-full text-center text-3xl">
+              LOADING PREDICTION...
+            </h1>
+          ) : (
+            <h1 className="w-full text-center text-3xl">
+              <div className="flex items-center justify-center">
+                <div className="flex w-fit items-center rounded-lg bg-alt p-2 m-3">
+                  <span className="p-2"> Overall Performance Score: </span>
+                  <div className="bg-white rounded-lg">
+                    <Progresswrapper
+                      type="circular"
+                      progressVal={predScore}
+                      time={20}
+                      strokeSize={3}
+                      containerSize={100}
+                      color="orange"
+                    />
+                  </div>
+                </div>
+              </div>
+            </h1>
+          )}
 
-        {/* <div className="flex flex-wrap justify-around gap-3">
+          {/* <div className="flex flex-wrap justify-around gap-3">
           {lpQuery.isFetching ? (
             <h1 className="w-full text-center text-3xl">LOADING PATHS...</h1>
           ) : (
@@ -147,7 +165,6 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
               })}
             </>
           )} */}
-
         </div>
       </div>
     </div>
@@ -173,7 +190,7 @@ const Student_LearnPath = ({ studentId }) => {
         <div className="flex w-full flex-col">
           {console.log(lpQuery.data)}
           {lpQuery.data.learningPath.map((path, i) => {
-            console.log(path)
+            console.log(path);
             return (
               // <div className="w-full m-auto shadow:lg rounded-xl" key={i}>
               //   <h1>Path Name: {path.classroomId.subject}</h1>
@@ -261,7 +278,7 @@ const Student_Cocurricular = ({ studentId }) => {
         <h1 className="w-full text-center text-3xl">LOADING... </h1>
       ) : (
         <>
-          <h1 className="mx-auto mt-5 mb-2 px-3 flex w-full max-w-xl flex-col">
+          <h1 className="mx-auto mt-5 mb-2 flex w-full max-w-xl flex-col px-3">
             <b>Number of cocurricular activities: {cocurrQuery.data.total}</b>
           </h1>
           {cocurrQuery.data.data.map((cocurr, idx) => {
@@ -282,7 +299,7 @@ const Student_Cocurricular = ({ studentId }) => {
 };
 
 const Student_D_Inner = ({ currUser }) => {
-  console.log(currUser.userInfo.name)
+  console.log(currUser.userInfo.name);
   if (currUser.userType !== "Student")
     window.location.assign("/" + currUser.userType + "_D");
   const studentMenuList = [
@@ -341,6 +358,7 @@ const Student_D_Inner = ({ currUser }) => {
           setMenuOption={setSelected}
         />
       )}
+      <MyChat />
     </div>
   );
 };

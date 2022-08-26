@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function App() {
+export default function App({ questions = [], setChecked }) {
   const questions = [
     {
       questionText: "What is the sum of 2 and 3?",
@@ -181,14 +181,22 @@ export default function App() {
       ],
     },
   ];
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
-      setScore(score + 1);
+      if (currentQuestion + 1 >= questions.length) {
+        console.log(score + 1 / questions.length);
+        if (score + 1 / questions.length >= 0.5) {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+        setScore(score + 1);
+        // setChecked(true);
+      }
     }
 
     const nextQuestion = currentQuestion + 1;
@@ -199,7 +207,7 @@ export default function App() {
     }
   };
   return (
-    <div className="app flex-center flex pt-10 ">
+    <div className="app flex-center flex ">
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {questions.length}
@@ -220,9 +228,18 @@ export default function App() {
                 {questions[currentQuestion].answerOptions.map(
                   (answerOption) => (
                     <button
-                      onClick={() =>
-                        handleAnswerOptionClick(answerOption.isCorrect)
-                      }
+                      onClick={() => {
+                        handleAnswerOptionClick(answerOption.isCorrect);
+                        // if (currentQuestion + 1 >= questions.length) {
+                        // 	console.log(score/questions.length)
+                        //   if (score / questions.length >= 0.5) {
+                        //     setChecked(true);
+                        //   } else {
+                        //     setChecked(false);
+                        //   }
+                        //   setChecked(true);
+                        // }
+                      }}
                     >
                       {answerOption.answerText}
                     </button>
