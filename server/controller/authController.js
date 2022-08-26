@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const { User } = require("../model/User");
 const { School } = require("../model/School");
 const { genPassword } = require("../utils/genPassword");
-const { ORG_EMAIL, ORG_PASSWORD } = require('../config/keys');
+const { ORG_EMAIL, ORG_PASSWORD, CLIENT_URL } = require('../config/keys');
 const { passport } = require('../app');
 
 const signupController = async (req, res) => {
@@ -88,17 +88,22 @@ const loginController = (req,res, next) => {
 }
 
 const logoutController = (req,res) => {
-    req.logout();
-
-    req.session.destroy((err) => {
-        if (!err) {
-            res.status(200).clearCookie('connect.sid').json({ message: "Logout Successful" });
-            console.log('Successfully logged out');
-        } else {
-            res.status(500).json({ message: `Error : ${err}` })
-            console.log(err);
-        }
+    req.logout((error) => {
+        if(error) return res.status(500).json({ message: `Error : ${error}` });
+        req.session.destroy((err) => {
+            if (!err) {
+                res.status(200).clearCookie('connect.sid').json({ message: "Logout Successful" });
+                // // res.set("Access-Control-Allow-Origin", "*");
+                // res.status(200).clearCookie('connect.sid').redirect(CLIENT_URL+'/');
+                // console.log(res.user);
+                console.log('Successfully logged out');
+            } else {
+                res.status(500).json({ message: `Error : ${err}` })
+                console.log(err);
+            }
+        });
     });
+
 }
 
 const authStatusController = (req,res) => {
