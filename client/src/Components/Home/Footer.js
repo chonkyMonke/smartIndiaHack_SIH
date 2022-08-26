@@ -4,89 +4,47 @@ import React from "react";
 function Footer() {
 	return (
 		<>
-			<div className="flex flex-col items-start justify-between w-full p-12 bg-gray-50 h-1/2 md:flex-row">
-				<div className="p-5 pl-0 mx-10 ml-0">
-					<ul>
-					<a href="/" className='flex items-center'>
-                    <div className="pb-5">
-                    <span className="pl-2 pr-1 text-5xl font-extrabold text-cus text-first font-bans">PRAG</span>
-                    <span className="font-extrabold text-cus font-bans text-merry">MATE</span>
-                    
-                    </div>
-            </a>
-						<div className="flex gap-6 pb-5 ml-2 text-xl ">
-                        <i class="uil uil-instagram hover:text-orange-600 hover:scale-105"></i>
-                        <i class="uil uil-twitter-alt hover:text-orange-600 hover:scale-105"></i>
-                        <i class="uil uil-facebook hover:text-orange-600 hover:scale-105"></i>
-                        <i class="uil uil-linkedin-alt hover:text-orange-600 hover:scale-105"></i>
-						</div>
-					</ul>
-				</div>
-				<div className="flex justify-between w-full lg:justify-around">
-				<div className="py-5 lg:px-5">
-					<ul>
-						<p className="pb-4 text-2xl font-bold text-gray-800">TOPIC 1</p>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-						Attribute 1
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 2
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 3
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 4
-						</li>
-					</ul>
-				</div>
-                <div className="px-2 py-5 lg:px-5">
-					<ul className="hidden md:block lg:block">
-						<p className="pb-4 text-2xl font-bold text-gray-800">TOPIC 2</p>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-						Attribute 1
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 2
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 3
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 4
-						</li>
-					</ul>
-				</div>
-                <div className="p-5 ">
-					<ul >
-						<p className="pb-4 text-2xl font-bold text-gray-800">TOPIC 3</p>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-						Attribute 1
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 2
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 3
-						</li>
-						<li className="pb-2 font-semibold text-gray-500 cursor-pointer text-md hover:text-orange-600">
-                        Attribute 4
-						</li>
-					</ul>
-				</div>
-				</div>
-				
-                
-				
-			</div>
-			<div className="flex flex-col items-center justify-center p-5 pb-8 text-center bg-gray-50">
-				<h1 className="font-semibold text-gray-800 ">
+			<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+  <a href="/" className='flex items-center'>
+                   	<span className="pl-2 pr-1 text-5xl font-extrabold text-cus text-first font-bans">PRAG</span>
+                    <span className="font-extrabold text-cus font-bans text-merry">MATE</span> </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+		<h1 className="flex flex-col items-center font-semibold text-gray-800">
 					© 2022-2023 All rights reserved | Build with ❤ by{" "}
-					<span className="font-semibold cursor-pointer hover:text-blue-600">
+					<span className="font-semibold cursor-pointer hover:text-orange-600">
 						Team Encoded{" "}
 					</span>
 				</h1>
-			</div>
+      
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a class="text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+    </span>
+  </div>
+</footer>
+
 		</>
 	);
 }
