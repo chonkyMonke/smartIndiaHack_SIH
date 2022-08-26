@@ -20,7 +20,7 @@ function MyChat() {
           </button>
         </div>
       ) : (
-        <div className="fixed flex flex-col justify-end bg-white bottom-10 right-5">
+        <div className="fixed flex flex-col justify-end bottom-6 right-5">
           <button
             onClick={() => {
               setOpen(true);
