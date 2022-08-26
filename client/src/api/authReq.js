@@ -57,11 +57,13 @@ export const authRegister = async (creds) => {
   }
 };
 
-export const authLogout = async (creds) => {
+export const authLogout = async () => {
   try {
-    const res = await axios.post(`${baseUrl}/auth/logout`, creds, {
+    const res = await axios.post(`${baseUrl}/auth/logout`, {
       withCredentials: true,
     });
+    queryClient.invalidateQueries("authstatus");
+    return res.data;
   } catch (error) {
     const res = error.response;
     if (res.status === 400) return { error: res.message };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function App({ questions = [], setChecked }) {
-  const questions = [
+  const questions1 = [
     {
       questionText: "Who was the first Mughal Emperor?",
       subject: "History",

@@ -126,9 +126,9 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
           ) : (
             <h1 className="w-full text-center text-3xl">
               <div className="flex items-center justify-center">
-                <div className="flex w-fit items-center rounded-lg bg-alt p-2 m-3">
+                <div className="m-3 flex w-fit items-center rounded-lg bg-alt p-2">
                   <span className="p-2"> Overall Performance Score: </span>
-                  <div className="bg-white rounded-lg">
+                  <div className="rounded-lg bg-white">
                     <Progresswrapper
                       type="circular"
                       progressVal={predScore}
