@@ -21,11 +21,13 @@ function Topiccard({ title, isDone = false, lpQuery, i, j }) {
         <input
           type="checkbox"
           checked={checked}
-          disabled={isDone}
+          disabled={true}
           className={`m-1 h-4 w-4 rounded accent-orange-600 `}
           onChange={(e) => {
+
             lpQuery.data.learningPath[i].learningOutcomes[j].isDone =
               e.target.checked;
+              console.log(e.target.checked)
           }}
         />
         <span className="m-1 grow text-xl font-semibold">{title}</span>

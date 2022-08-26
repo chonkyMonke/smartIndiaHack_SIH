@@ -5,11 +5,18 @@ export default function App({ questions = [], setChecked }) {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
-
-
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
-      setScore(score + 1);
+      if (currentQuestion + 1 >= questions.length) {
+        console.log(score + 1 / questions.length);
+        if (score + 1 / questions.length >= 0.5) {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+        setScore(score + 1);
+        // setChecked(true);
+      }
     }
 
     const nextQuestion = currentQuestion + 1;
@@ -41,19 +48,18 @@ export default function App({ questions = [], setChecked }) {
                 {questions[currentQuestion].answerOptions.map(
                   (answerOption) => (
                     <button
-                      onClick={() =>{
-
-						  handleAnswerOptionClick(answerOption.isCorrect)
-						  if(currentQuestion+1>=questions.length){
-							if(score/questions.length>=0.5){
-								setChecked(true) 
-							  }else{
-								  setChecked(false)
-							  }
-							  
-						  }
-					  }
-                      }
+                      onClick={() => {
+                        handleAnswerOptionClick(answerOption.isCorrect);
+                        // if (currentQuestion + 1 >= questions.length) {
+                        // 	console.log(score/questions.length)
+                        //   if (score / questions.length >= 0.5) {
+                        //     setChecked(true);
+                        //   } else {
+                        //     setChecked(false);
+                        //   }
+                        //   setChecked(true);
+                        // }
+                      }}
                     >
                       {answerOption.answerText}
                     </button>

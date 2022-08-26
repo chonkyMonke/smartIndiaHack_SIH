@@ -3,6 +3,7 @@ import { Disclosure } from "@headlessui/react";
 import { UilAngleRightB } from "@iconscout/react-unicons";
 import Topiccard from "./Topiccard";
 import Progresswrapper from "../Progressbars/Progresswrapper";
+import { useRef } from "react";
 
 function Modulecard({
   learningPath = {},
@@ -11,6 +12,7 @@ function Modulecard({
   i,
   handleUpdate,
 }) {
+  const topicCardRef = useRef();
   return (
     <div className=" w-full max-w-xl rounded-2xl bg-white p-2">
       <Disclosure>
@@ -32,7 +34,7 @@ function Modulecard({
                 </span>
               </div>
             </Disclosure.Button>
-            <Disclosure.Panel className="px-2  pb-2 text-sm text-gray-500">
+            <Disclosure.Panel className="px-2 pb-2 text-sm text-gray-500">
               <div className="m-2 w-full">
                 <Progresswrapper
                   type="linear"
@@ -45,20 +47,37 @@ function Modulecard({
                 />
               </div>
 
-              {learningPath.learningOutcomes.map((item, j) => (
-                <Topiccard
-                  title={item.name}
-                  isDone={item.isDone}
-                  key={item.id}
-                  lpQuery={lpQuery}
-                  i={i}
-                  j={j}
-                />
-              ))}
+              <div ref={topicCardRef}>
+                {learningPath.learningOutcomes.map((item, j) => (
+                  <Topiccard
+                    title={item.name}
+                    isDone={item.isDone}
+                    key={item.id}
+                    lpQuery={lpQuery}
+                    i={i}
+                    j={j}
+                  />
+                ))}
+              </div>
 
               <button
                 className=" m-1 mt-3 w-full cursor-pointer rounded-lg bg-first p-2 font-semibold text-white"
                 onClick={() => {
+                  // lpQuery.data.learningPath[i].learningOutcomes[j].isDone =
+                  //   e.target.checked;
+                  // console.log(e.target.checked);
+                  console.log(
+                    topicCardRef.current.children[1].children
+                  );
+                  for (i = 0; i < topicCardRef.current.children.length; i++) {
+                    console.log(topicCardRef.current.children);
+                  }
+                  lpQuery.data.learningPath[i].learningOutcomes.forEach(
+                    (e, i) => {
+                      e.isDone = e.checked;
+                    }
+                  );
+
                   handleUpdate(i);
                 }}
               >
