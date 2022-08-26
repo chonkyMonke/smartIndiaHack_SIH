@@ -8,7 +8,7 @@ function MyChat() {
   return (
     <>
       {isOpen ? (
-        <div className="fixed right-0 flex flex-col justify-end h-64 mb-2 mr-2 bg-white border-4 border-gray-300 rounded-lg bottom-24">
+        <div className="fixed bottom-5  right-0 flex flex-col justify-end h-64 mb-2 mr-2 border-4 border-gray-300 rounded-lg">
           <Chatbot />
           <button
             className="w-3/5 p-2 mx-auto my-2 rounded-md bg-alt text-altxt "

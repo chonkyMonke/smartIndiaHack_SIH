@@ -57,11 +57,10 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
 
   return (
     <div className="w-full ">
-      <div className="flex flex-col w-full">
-        <div className="m-3 w-100 text-md md:text-3xl">
-          Welcome, {studentName}
-        </div>
-        <div className="flex flex-wrap justify-center w-full">
+
+      <div className="flex w-full flex-col">
+        <div className="m-2 text-2xl font-semibold">Welcome, {studentName}</div>
+        <div className="flex w-full flex-wrap justify-center">
           {lpQuery.isFetching ? (
             <h1 className="w-full text-3xl text-center">LOADING GRAPHS...</h1>
           ) : (
@@ -126,9 +125,10 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
           ) : (
             <h1 className="w-full text-3xl text-center">
               <div className="flex items-center justify-center">
-                <div className="flex items-center p-2 m-3 rounded-lg w-fit bg-alt">
+
+                <div className="m-3 flex w-fit items-center rounded-lg bg-alt p-2">
                   <span className="p-2"> Overall Performance Score: </span>
-                  <div className="bg-white rounded-lg">
+                  <div className="rounded-lg bg-white">
                     <Progresswrapper
                       type="circular"
                       progressVal={predScore}
@@ -176,7 +176,7 @@ const Student_LearnPath = ({ studentId }) => {
     getLearningPaths(studentId)
   );
   const handleUpdate = async (idx) => {
-    console.log(lpQuery.data.learningPath[idx]);
+    console.log("Response sent: "+lpQuery.data.learningPath[idx]);
     const resData = await updateLearningPath(lpQuery.data.learningPath[idx]);
     if (resData.error) {
       window.alert(resData.error);
@@ -189,6 +189,7 @@ const Student_LearnPath = ({ studentId }) => {
       ) : (
         <div className="flex flex-col w-full">
           {console.log(lpQuery.data)}
+          <div className="m-2 text-2xl font-semibold">Learning Path</div>
           {lpQuery.data.learningPath.map((path, i) => {
             console.log(path);
             return (
@@ -358,7 +359,9 @@ const Student_D_Inner = ({ currUser }) => {
           setMenuOption={setSelected}
         />
       )}
-      <MyChat />
+      <div className="bg-transparent">
+        <MyChat />
+      </div>
     </div>
   );
 };

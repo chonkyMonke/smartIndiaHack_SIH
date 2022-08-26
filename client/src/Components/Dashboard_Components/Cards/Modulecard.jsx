@@ -12,7 +12,167 @@ function Modulecard({
   i,
   handleUpdate,
 }) {
-  const topicCardRef = useRef();
+  const questionData = [
+    {
+      subject: "History",
+      topics: [
+        {
+          topic: "The Mughal Empire",
+          question: {
+            questionText: "Who is the first mughal emperor?",
+            answerOptions: [
+              { answerText: "Babur", isCorrect: true },
+              { answerText: "Akbar", isCorrect: false },
+              { answerText: "Aurangzeb", isCorrect: false },
+              { answerText: "Shah Rukh Khan", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Mauryan Empire",
+          question: {
+            questionText: "Who is a mayuran emperor?",
+            answerOptions: [
+              { answerText: "Ashoka", isCorrect: true },
+              { answerText: "Akbar", isCorrect: false },
+              { answerText: "Aurangzeb", isCorrect: false },
+              { answerText: "Shah Rukh Khan", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Mahatma Gandhi",
+          question: {
+            questionText: "When was Mahatma Gandhi Born?",
+            answerOptions: [
+              { answerText: "5 Oct", isCorrect: true },
+              { answerText: "10 Dec", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Chhatrapathi Shivaji",
+          question: {
+            questionText: "What was the name of Chhatrapathi Shivaji?",
+            answerOptions: [
+              { answerText: "Chettak", isCorrect: true },
+              { answerText: "Bucephalus", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Gupta Empire",
+          question: {
+            questionText: "Chandra Gupta II extended the Gupta Empire to Gujrat in __ AD",
+            answerOptions: [
+              { answerText: "390 ", isCorrect: true },
+              { answerText: "309", isCorrect: false },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      subject: "English - I",
+      topics: [
+        {
+          topic: "Climate of India",
+          question: {
+            questionText: "Most of Indias rainfall is",
+            answerOptions: [
+              { answerText: "convectional", isCorrect: true },
+              { answerText: "cyclonic", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Soil of India",
+          question: {
+            questionText: "Granite is __ type of rock",
+            answerOptions: [
+              { answerText: "Igneous", isCorrect: true },
+              { answerText: "sedimentary", isCorrect: false },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      subject: "EVS Part-1",
+      topics: [
+        {
+          topic: "Climate Change",
+          question: {
+            questionText: "Greenhouse effect s mainly due to increase in atmospheric ____",
+            answerOptions: [
+              { answerText: "CO", isCorrect: true },
+              { answerText: "NO", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Forests in India",
+          question: {
+            questionText: "Which forest is refered to as monsoon forest?",
+            answerOptions: [
+              { answerText: "tropical deciduous forest", isCorrect: true },
+              { answerText: "mangrove", isCorrect: false },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      subject: "Geography",
+      topics: [
+        {
+          topic: "Climate Change",
+          question: {
+            questionText: "Greenhouse effect s mainly due to increase in atmospheric ____",
+            answerOptions: [
+              { answerText: "CO", isCorrect: true },
+              { answerText: "NO", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Identifies simple features of flowers",
+          question: {
+            questionText: "Arrangement of leaves on steam or branch?",
+            answerOptions: [
+              { answerText: "Phyllotaxy", isCorrect: true },
+              { answerText: "Venation", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Explains the herd//group behaviour",
+          question: {
+            questionText: "Group of birds called",
+            answerOptions: [
+              { answerText: "flock", isCorrect: true },
+              { answerText: "herd", isCorrect: false },
+            ],
+          },
+        },
+        {
+          topic: "Describes skilled work",
+          question: {
+            questionText: "Large scale maps give less information than small scale maps",
+            answerOptions: [
+              { answerText: "false", isCorrect: true },
+              { answerText: "true", isCorrect: false },
+            ],
+          },
+        },
+      ],
+    },
+  ];
+  const questionSubjectQuestions = questionData.filter((item)=>{
+    return item.subject===learningPath.classroomId.subject
+  })[0]?.topics
+  console.log( questionSubjectQuestions )
+  console.log("-------------------")
   return (
     <div className=" w-full max-w-xl rounded-2xl bg-white p-2">
       <Disclosure>
@@ -47,15 +207,22 @@ function Modulecard({
                 />
               </div>
 
-              <div ref={topicCardRef}>
+              <div>
                 {learningPath.learningOutcomes.map((item, j) => (
                   <Topiccard
                     title={item.name}
                     isDone={item.isDone}
                     key={item.id}
                     lpQuery={lpQuery}
+                    item={item}
                     i={i}
                     j={j}
+                    question={
+                      questionSubjectQuestions?.filter((question)=>{
+                        return question.topic===item.name
+                      })[0]?.question
+                    }
+                    subject={learningPath.classroomId.subject}
                   />
                 ))}
               </div>
@@ -66,17 +233,17 @@ function Modulecard({
                   // lpQuery.data.learningPath[i].learningOutcomes[j].isDone =
                   //   e.target.checked;
                   // console.log(e.target.checked);
-                  console.log(
-                    topicCardRef.current.children[1].children
-                  );
-                  for (i = 0; i < topicCardRef.current.children.length; i++) {
-                    console.log(topicCardRef.current.children);
-                  }
-                  lpQuery.data.learningPath[i].learningOutcomes.forEach(
-                    (e, i) => {
-                      e.isDone = e.checked;
-                    }
-                  );
+                  // console.log(
+                  //   topicCardRef.current.children[1].children
+                  // );
+                  // for (i = 0; i < topicCardRef.current.children.length; i++) {
+                  //   console.log(topicCardRef.current.children);
+                  // }
+                  // lpQuery.data.learningPath[i].learningOutcomes.forEach(
+                  //   (e, i) => {
+                  //     e.isDone = e.checked;
+                  //   }
+                  // );
 
                   handleUpdate(i);
                 }}
