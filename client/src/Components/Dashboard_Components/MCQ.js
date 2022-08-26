@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function App({  setChecked }) {
+export default function App( setChecked ) {
   const questions = [
     {
       questionText: "Who was the first Mughal Emperor?",

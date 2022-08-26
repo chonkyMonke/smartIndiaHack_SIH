@@ -14,16 +14,17 @@ import Modulecard from "./Components/Dashboard_Components/Cards/Modulecard";
 import Pathcard from "./Components/Dashboard_Components/Cards/Pathcard";
 import StudentSearchCard from "./Components/Dashboard_Components/Cards/StudentSearchCard";
 import AddCocurriculumForm from "./Components/Dashboard_Components/Forms/AddCocurriculumForm";
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from './config/queryClient';
-import AddStudentForm from './Components/Dashboard_Components/Forms/AddStudentForm';
-import AddTeacherForm from './Components/Dashboard_Components/Forms/AddTeacherForm';
-import CocurricularListCard from './Components/Dashboard_Components/Cards/CocurricularListCard'
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./config/queryClient";
+import AddStudentForm from "./Components/Dashboard_Components/Forms/AddStudentForm";
+import AddTeacherForm from "./Components/Dashboard_Components/Forms/AddTeacherForm";
+import CocurricularListCard from "./Components/Dashboard_Components/Cards/CocurricularListCard";
 import Sidebar from "./Components/Dashboard_Components/Navigation/Sidebar";
 import Iframe from "./Components/Dashboard_Components/iFrame/Chatbot";
 import MCQ from "./Components/Dashboard_Components/MCQ";
-import Frame from "./Components/Dashboard_Components/Chatbot/ChatBot"
-import BotNav from './Components/Dashboard_Components/Navigation/bottomobnav'
+import Frame from "./Components/Dashboard_Components/Chatbot/ChatBot";
+import BotNav from "./Components/Dashboard_Components/Navigation/bottomobnav";
+import Logout from "./Components/Logout/Logout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -32,6 +33,7 @@ const wrapper = (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Logout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Student_D" element={<Student_D />} />
         <Route path="/Teacher_D" element={<Teacher_D />} />
@@ -40,10 +42,9 @@ const wrapper = (
           path="/custom"
           element={
             <div>
+              <Frame />
 
-              <Frame/>
-              
-            {/* <Sidebar />   */}
+              {/* <Sidebar />   */}
               {/* <Iframe/>
               <MCQ/>
               <AddAcademicPathForm />
@@ -89,7 +90,6 @@ const wrapper = (
               {/* <AddStudentForm />
               <AddTeacherForm />  */}
             </div>
-            
           }
         />
       </Routes>
