@@ -8,10 +8,10 @@ function MyChat() {
   return (
     <>
       {isOpen ? (
-        <div className="fixed bottom-0 right-0 flex h-64 flex-col justify-end border border-gray-700 bg-white">
+        <div className="fixed bottom-0 right-0 flex flex-col justify-end h-64 mb-2 mr-2 bg-white border-4 border-gray-300 rounded-lg">
           <Chatbot />
           <button
-            className="mx-auto my-2 w-3/5 rounded-md bg-alt p-2 text-altxt"
+            className="w-3/5 p-2 mx-auto my-2 rounded-md bg-alt text-altxt"
             onClick={() => {
               setOpen(false);
             }}
@@ -20,12 +20,12 @@ function MyChat() {
           </button>
         </div>
       ) : (
-        <div className="fixed bottom-10 right-5 flex flex-col justify-end border border-gray-700 bg-white">
+        <div className="fixed flex flex-col justify-end bg-white bottom-10 right-5">
           <button
             onClick={() => {
               setOpen(true);
             }}
-            className="bg-alt text-altxt"
+            className="p-5 text-white rounded-full bg-alt"
           >
             <UilComments className="w-8 h-8"/>
           </button>

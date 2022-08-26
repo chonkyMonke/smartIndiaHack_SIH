@@ -13,7 +13,7 @@ function Partner() {
   <div class="container px-5 pt-10 mx-auto">
     <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
       <div class="sm:w-32 sm:h-32  sm:mr-10 inline-flex items-center justify-center rounded-full  text-orange-600flex-shrink-0">
-        <img src={Aws} alt="" className="" />
+        <img src={Aws} alt="" className="w-20 h-20" />
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Amazon Web Services and EC2 cloud Compute</h2>
@@ -36,12 +36,12 @@ function Partner() {
         </a>
       </div>
       <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full text-orange-600 flex-shrink-0">
-      <img src={Bws} alt="" className="" />
+      <img src={Bws} alt="" className="w-16 h-16" />
       </div>
     </div>
     <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
       <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full  text-orange-600 flex-shrink-0">
-      <img src={Cws} alt="" className="" />
+      <img src={Cws} alt="" className="h-24 w-28" />
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Ministry of Education</h2>
