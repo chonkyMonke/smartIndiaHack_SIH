@@ -25,7 +25,7 @@ function MyChat() {
             onClick={() => {
               setOpen(true);
             }}
-            className="p-5 mb-24 text-white rounded-full bg-alt"
+            className="p-5 mb-16 text-white rounded-full bg-alt"
           >
             <UilComments className="w-8 h-8 "/>
           </button>

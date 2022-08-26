@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function App({ questions = [], setChecked }) {
+export default function App({  setChecked }) {
   const questions = [
     {
       questionText: "Who was the first Mughal Emperor?",
@@ -120,7 +120,7 @@ export default function App({ questions = [], setChecked }) {
     }
   };
   return (
-    <div className="app flex-center flex ">
+    <div className="flex app flex-center ">
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {questions.length}
@@ -128,11 +128,11 @@ export default function App({ questions = [], setChecked }) {
       ) : (
         <>
           <div className="flex flex-col ">
-            <div className="question-section flex flex-col">
-              <div className="question-count text-xl font-bold text-alt">
+            <div className="flex flex-col question-section">
+              <div className="text-xl font-bold question-count text-alt">
                 <span>Question {currentQuestion + 1}</span>/{questions.length}
               </div>
-              <div className="question-text text-lg font-semibold">
+              <div className="text-lg font-semibold question-text">
                 {questions[currentQuestion].questionText}
               </div>
             </div>
