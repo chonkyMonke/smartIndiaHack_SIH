@@ -57,16 +57,16 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
 
   return (
     <div className="w-full ">
-      <div className="flex w-full flex-col">
-        <div className="w-100 text-md m-3 md:text-3xl">
+      <div className="flex flex-col w-full">
+        <div className="m-3 w-100 text-md md:text-3xl">
           Welcome, {studentName}
         </div>
-        <div className="flex w-full flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center w-full">
           {lpQuery.isFetching ? (
-            <h1 className="w-full text-center text-3xl">LOADING GRAPHS...</h1>
+            <h1 className="w-full text-3xl text-center">LOADING GRAPHS...</h1>
           ) : (
             <>
-              <div className="flex w-screen justify-center lg:w-2/4">
+              <div className="flex justify-center w-screen lg:w-2/4">
                 <Barchart
                   labels={lpQuery.data.learningPath.map((path) => {
                     return path.classroomId.subject;
@@ -80,7 +80,7 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
                   colors={[["#ff9900", "#f45502"]]}
                 />
               </div>
-              <div className="flex w-full justify-center lg:w-2/4">
+              <div className="flex justify-center w-full lg:w-2/4">
                 <Areachart
                   labels={lpQuery.data.learningPath.map((path) => {
                     return path.classroomId.subject;
@@ -94,7 +94,7 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
                   colors={[["#ff9900", "#f45502"]]}
                 />
               </div>
-              <div className="flex w-full justify-center">
+              <div className="flex justify-center w-full">
                 <Linechart
                   labels={lpQuery.data.learningPath.map((path) => {
                     return path.classroomId.subject;
@@ -118,17 +118,17 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
             ]}
           /> */}
         </div>
-        <div className="flex w-full justify-center">
+        <div className="flex justify-center w-full">
           {cocurrQuery.isFetching || predIsFetching ? (
-            <h1 className="w-full text-center text-3xl">
+            <h1 className="w-full text-3xl text-center">
               LOADING PREDICTION...
             </h1>
           ) : (
-            <h1 className="w-full text-center text-3xl">
+            <h1 className="w-full text-3xl text-center">
               <div className="flex items-center justify-center">
-                <div className="m-3 flex w-fit items-center rounded-lg bg-alt p-2">
+                <div className="flex items-center p-2 m-3 rounded-lg w-fit bg-alt">
                   <span className="p-2"> Overall Performance Score: </span>
-                  <div className="rounded-lg bg-white">
+                  <div className="bg-white rounded-lg">
                     <Progresswrapper
                       type="circular"
                       progressVal={predScore}
@@ -145,7 +145,7 @@ const Student_Home = ({ studentName, studentId, setSelected }) => {
 
           {/* <div className="flex flex-wrap justify-around gap-3">
           {lpQuery.isFetching ? (
-            <h1 className="w-full text-center text-3xl">LOADING PATHS...</h1>
+            <h1 className="w-full text-3xl text-center">LOADING PATHS...</h1>
           ) : (
             <>
               {lpQuery.data.learningPath.map((path) => {
@@ -185,9 +185,9 @@ const Student_LearnPath = ({ studentId }) => {
   return (
     <div className="w-full overflow-y-auto">
       {lpQuery.isFetching ? (
-        <h1 className="w-full text-center text-3xl">LOADING PATHS...</h1>
+        <h1 className="w-full text-3xl text-center">LOADING PATHS...</h1>
       ) : (
-        <div className="flex w-full flex-col">
+        <div className="flex flex-col w-full">
           {console.log(lpQuery.data)}
           {lpQuery.data.learningPath.map((path, i) => {
             console.log(path);
@@ -245,7 +245,7 @@ const Student_LearnPath = ({ studentId }) => {
 
 // const Student_CocurrCard = ({ data, delCocurr }) => {
 //   return (
-//     <div className="flex w-full max-w-xl flex-col mx-auto my-10 rounded-xl shadow-lg">
+//     <div className="flex flex-col w-full max-w-xl mx-auto my-10 shadow-lg rounded-xl">
 //       <h1><b>Name:</b> {data.name}</h1>
 //       <h1><b>Description:</b> </h1>
 //       <p>{data.description}</p>
@@ -272,13 +272,13 @@ const Student_Cocurricular = ({ studentId }) => {
     }
   };
   return (
-    <div className="w-full flex-col items-center justify-center overflow-y-auto">
+    <div className="flex-col items-center justify-center w-full overflow-y-auto">
       <AddCocurriculumForm studentId={studentId} />
       {cocurrQuery.isFetching ? (
-        <h1 className="w-full text-center text-3xl">LOADING... </h1>
+        <h1 className="w-full text-3xl text-center">LOADING... </h1>
       ) : (
         <>
-          <h1 className="mx-auto mt-5 mb-2 flex w-full max-w-xl flex-col px-3">
+          <h1 className="flex flex-col w-full max-w-xl px-3 mx-auto mt-5 mb-2">
             <b>Number of cocurricular activities: {cocurrQuery.data.total}</b>
           </h1>
           {cocurrQuery.data.data.map((cocurr, idx) => {
