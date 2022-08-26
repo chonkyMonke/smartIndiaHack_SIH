@@ -23,6 +23,7 @@ import Sidebar from "./Components/Dashboard_Components/Navigation/Sidebar";
 import Iframe from "./Components/Dashboard_Components/iFrame/Chatbot";
 import MCQ from "./Components/Dashboard_Components/MCQ";
 import Frame from "./Components/Dashboard_Components/Chatbot/ChatBot"
+import BotNav from './Components/Dashboard_Components/Navigation/bottomobnav'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -39,8 +40,10 @@ const wrapper = (
           path="/custom"
           element={
             <div>
+
               <Frame/>
-              <Sidebar />
+              
+            {/* <Sidebar />   */}
               {/* <Iframe/>
               <MCQ/>
               <AddAcademicPathForm />
