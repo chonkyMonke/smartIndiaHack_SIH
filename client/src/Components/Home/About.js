@@ -1,6 +1,7 @@
 import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
+
 function About() {
   
   return (
@@ -8,11 +9,7 @@ function About() {
     <div id='about' className='relative h-screen bg-orange-800 lg:h-vlg md:h-mlg abtbgimg'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='-translate-y-2'><path fill="#fff" fill-opacity="1" d="M0,32L1440,96L1440,0L0,0Z"></path></svg>
       
-      <div className="relative mx-10 -translate-y-36 h-80 ">
-       <div className="">
-        
-       </div>
-      
+      <div className="relative mx-10 -translate-y-36 h-72 ">
        <h1 className="absolute right-0 hidden pl-10 mb-8 text-6xl font-bold text-white translate-y-20 lg:block mx-9">About Us</h1>
       <div className="flex flex-row items-center lg:-translate-y-16">
       
@@ -51,7 +48,7 @@ function About() {
         style={{ height: '300px', width: '300px' }}
       >
       </Player>
-        <p className="mx-3 text-md text-center text-white -translate-y-3 md:block md:-translate-y-20">
+        <p className="mx-3 text-center text-white -translate-y-3 text-md md:block md:-translate-y-20">
         The students in the pragmatic world need a holistic development, the question of manual efforts of the teachers to put in the progress of the students about their learning outcomes inn realtime is time consuming and exhaustive.We partner with AWS to provide auto scaling services and a load balancer to ensure a smooth fast and a scaled application
 
         </p>
