@@ -3,53 +3,8 @@ import React, { useState } from "react";
 export default function App({ questions = [], setChecked }) {
   const questions = [
     {
-      questionText: "What is the sum of 2 and 3?",
-      answerOptions: [
-        { answerText: "5", isCorrect: true },
-        { answerText: "7", isCorrect: false },
-        { answerText: "1", isCorrect: false },
-        { answerText: "9", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "What is the difference between 3 and 8?",
-      answerOptions: [
-        { answerText: "7", isCorrect: false },
-        { answerText: "5", isCorrect: true },
-        { answerText: "1", isCorrect: false },
-        { answerText: "8", isCorrect: false },
-      ],
-    },
-    {
-      questionText:
-        "Number of girls is 15, and number of boys is 7.Answer which one is greater?",
-      answerOptions: [
-        { answerText: "Girls", isCorrect: true },
-        { answerText: "Boys", isCorrect: false },
-      ],
-    },
-    {
-      questionText:
-        "A bakery had 100 cupcakes, Rahul bought 10, Sneha bought 40 cupcakes. How many cupcakes are remaining?",
-      answerOptions: [
-        { answerText: "50", isCorrect: true },
-        { answerText: "23", isCorrect: false },
-        { answerText: "35", isCorrect: false },
-        { answerText: "45", isCorrect: false },
-      ],
-    },
-    {
-      questionText:
-        "The spider climbs up 5 units up the pipe, the rain falls and he falls by 4 units down, how many units did it climb?",
-      answerOptions: [
-        { answerText: "0", isCorrect: false },
-        { answerText: "1", isCorrect: true },
-        { answerText: "5", isCorrect: false },
-        { answerText: "9", isCorrect: false },
-      ],
-    },
-    {
       questionText: "Who was the first Mughal Emperor?",
+      subject: "History",
       answerOptions: [
         { answerText: "Babur", isCorrect: true },
         { answerText: "Akbar", isCorrect: true },
@@ -59,6 +14,7 @@ export default function App({ questions = [], setChecked }) {
     },
     {
       questionText: "At what age did Chandragupta Maurya become king?",
+      subject: "History",
       answerOptions: [
         { answerText: "21", isCorrect: true },
         { answerText: "26", isCorrect: false },
@@ -69,6 +25,7 @@ export default function App({ questions = [], setChecked }) {
     {
       questionText:
         "The difference between the local time of any two consecutive longitude is",
+      subject: "Geography",
       answerOptions: [
         { answerText: "15 minutes", isCorrect: false },
         { answerText: "04 minutes", isCorrect: true },
@@ -79,6 +36,7 @@ export default function App({ questions = [], setChecked }) {
     {
       questionText:
         "Which part of the Earth's core is responsible for Earth's Field?",
+      subject: "Geography",
       answerOptions: [
         { answerText: "Mantle", isCorrect: false },
         { answerText: "Crust", isCorrect: false },
@@ -88,6 +46,7 @@ export default function App({ questions = [], setChecked }) {
     },
     {
       questionText: "Transpiration from the leaves of trees is an example  of:",
+      subject: "EVS Part-1",
       answerOptions: [
         { answerText: "Evaporation", isCorrect: true },
         { answerText: "Sublimation", isCorrect: false },
@@ -98,6 +57,7 @@ export default function App({ questions = [], setChecked }) {
     {
       questionText:
         "The mechanization of many jobs, which resulted in major population shifts from rural areas to urban areas",
+      subject: "EVS Part-1",
       answerOptions: [
         { answerText: "urban land", isCorrect: false },
         { answerText: "Industrial Revolution", isCorrect: true },
@@ -108,46 +68,8 @@ export default function App({ questions = [], setChecked }) {
 
     {
       questionText:
-        "Which one among the following best describes an economic activity that is concerned with production of goods, extraction of minerals or the provision of services",
-      answerOptions: [
-        { answerText: "Agriculture", isCorrect: false },
-        { answerText: "Raw Material", isCorrect: true },
-        { answerText: "Industry", isCorrect: false },
-        { answerText: "Manufacturing", isCorrect: false },
-      ],
-    },
-    {
-      questionText:
-        "The ways in which the scale can be shown on the map includes",
-      answerOptions: [
-        { answerText: "By words", isCorrect: false },
-        { answerText: "By the ratio", isCorrect: false },
-        { answerText: "By the line", isCorrect: false },
-        { answerText: "All of the above", isCorrect: true },
-      ],
-    },
-    {
-      questionText:
-        "The greenhouse Effect is mainly due to the increase in atmospheric ",
-      answerOptions: [
-        { answerText: "Nitrogen", isCorrect: false },
-        { answerText: "Carbon Dioxide", isCorrect: false },
-        { answerText: "Ozone", isCorrect: false },
-        { answerText: "Carbon Monoxide", isCorrect: true },
-      ],
-    },
-    {
-      questionText: "Arrangement of leaves on a stem or branch",
-      answerOptions: [
-        { answerText: "Venation", isCorrect: false },
-        { answerText: "Vernation", isCorrect: false },
-        { answerText: "Inflorescence", isCorrect: false },
-        { answerText: "Phyllotaxy", isCorrect: true },
-      ],
-    },
-    {
-      questionText:
         "Which of the following best summarizes the central idea of the text?",
+      subject: "English-I",
       answerOptions: [
         {
           answerText:
@@ -169,15 +91,6 @@ export default function App({ questions = [], setChecked }) {
             " Even when acting alone, humans are not as advanced as we would like to think",
           isCorrect: false,
         },
-      ],
-    },
-    {
-      questionText: "Arrangement of leaves on a stem or branch",
-      answerOptions: [
-        { answerText: "Venation", isCorrect: false },
-        { answerText: "Vernation", isCorrect: false },
-        { answerText: "Inflorescence", isCorrect: false },
-        { answerText: "Phyllotaxy", isCorrect: true },
       ],
     },
   ];
